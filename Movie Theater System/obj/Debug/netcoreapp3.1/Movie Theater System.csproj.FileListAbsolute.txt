@@ -12,3 +12,10 @@ C:\Users\ataka\Documents\GitHub\Movie-Theater-System\Movie Theater System\obj\De
 C:\Users\ataka\Documents\GitHub\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.dll
 C:\Users\ataka\Documents\GitHub\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.pdb
 C:\Users\ataka\Documents\GitHub\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.genruntimeconfig.cache
+C:\Users\egeme\Desktop\307 Project\307 Project\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.csproj.AssemblyReference.cache
+C:\Users\egeme\Desktop\307 Project\307 Project\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\egeme\Desktop\307 Project\307 Project\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.AssemblyInfoInputs.cache
+C:\Users\egeme\Desktop\307 Project\307 Project\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.AssemblyInfo.cs
+C:\Users\egeme\Desktop\307 Project\307 Project\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.csproj.CoreCompileInputs.cache
+C:\Users\egeme\Desktop\307 Project\307 Project\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.dll
+C:\Users\egeme\Desktop\307 Project\307 Project\Movie-Theater-System\Movie Theater System\obj\Debug\netcoreapp3.1\Movie Theater System.pdb

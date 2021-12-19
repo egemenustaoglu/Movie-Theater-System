@@ -6,15 +6,14 @@ namespace Movie_Theater_System
     {
         static void Main(string[] args)
         {
-            
-            User user1 = new Manager("Atakan", 1);
-            User user2 = new TicketOfficer("Egoş", 2);
-            Asd(user1);
-            Asd(user2);
+            User Manager = new Manager("Atakan", 1);
+            User TicketOfficer = new TicketOfficer("Egemen", 2);
+            UserTest(Manager);
+            UserTest(TicketOfficer);
         }
 
         //Here we create a method for show polymorphism 
-        public static void Asd(User user)
+        public static void UserTest(User user)
         {
             user.userWorking();
         }

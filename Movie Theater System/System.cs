@@ -10,12 +10,14 @@ namespace Movie_Theater_System
             User TicketOfficer = new TicketOfficer("Egemen", 2);
             UserTest(Manager);
             UserTest(TicketOfficer);
+            Customer cust = new Customer(24 , "atakan akyaz");
+            
         }
 
         //Here we create a method for show polymorphism 
         public static void UserTest(User user)
         {
-            user.userWorking();
+            user.printInfo();
         }
        
         

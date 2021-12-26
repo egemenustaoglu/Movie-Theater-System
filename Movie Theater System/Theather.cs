@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
+    //Inheritance parent
     public abstract class Theather
     {
         private  int theatherID;

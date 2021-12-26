@@ -13,6 +13,6 @@ namespace Movie_Theater_System
         }
 
         //workerTalks() method for further usage of  Polymorphism
-        public abstract void userWorking();
+        public abstract void printInfo();
     }
 }

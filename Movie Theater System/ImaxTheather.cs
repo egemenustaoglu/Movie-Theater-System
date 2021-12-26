@@ -4,11 +4,13 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
+    // is-a relationship inherit (child) from Theather 
     class ImaxTheather : Theather
     {
         private int imaxTheatherID;
         private int imaxSeatCount;
         private bool imaxIsAvailable;
+        // has-a relationship ImaxTheather has a movie inside
         Movie movie = new Movie();
 
 

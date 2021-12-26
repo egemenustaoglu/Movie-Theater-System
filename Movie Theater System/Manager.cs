@@ -23,7 +23,7 @@ namespace Movie_Theater_System
         }
 
         //userWorking() for usage of Polymorphism we override the method for the specific user type
-        public override void userWorking()
+        public override void printInfo()
         {
             Console.WriteLine("My name is " + getName() + " and I am the Manager");
         }

@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
+    // The class being inherited from.
+    // Base class of Manager & Ticket officer.
     public abstract class User
     {
 
@@ -12,7 +14,7 @@ namespace Movie_Theater_System
         
         }
 
-        //workerTalks() method for further usage of  Polymorphism
+        //printInfo() method for further usage of Polymorphism in child classes.
         public abstract void printInfo();
     }
 }

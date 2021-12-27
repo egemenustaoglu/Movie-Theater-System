@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
-    // is-a relationship inherit (child) from Theather 
+    // Derived class from Theater.cs
+    // is-a relationship *Inheritance of (Imax Theater) from Theater class.
     class ImaxTheather : Theather
     {
         private int imaxTheatherID;
@@ -36,10 +37,7 @@ namespace Movie_Theater_System
             //call movie title from Moive class's getMovieTitle method which return string
             return movie.getMovieTitle();
         }
-        public override bool isThatherAvailable()
-        {
-            return imaxIsAvailable;
-        }
+        
         // set methods
         public override void setID(int index)
         {
@@ -72,10 +70,15 @@ namespace Movie_Theater_System
         {
             imaxIsAvailable = availibilty;
         }
-       
 
-       
 
-       
+        //isTheaterAvaliable() is for usage of Polymorphism
+        //Override the method for the specific theater condition.
+        public override bool isTheaterAvaliable()
+        {
+            return imaxIsAvailable;
+        }
+
+
     }
 }

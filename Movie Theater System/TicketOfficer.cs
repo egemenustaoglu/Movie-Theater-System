@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
-    class TicketOfficer:User
+    // Derived class from User.cs
+    // is-a relationship *Inheritance of (Ticket Officer) from User class.
+    class TicketOfficer : User
     {
         private String name;
         private int id;
@@ -22,7 +24,8 @@ namespace Movie_Theater_System
             return name;
         }
 
-        //userWorking() for usage of Polymorphism we override the method for the specific user type
+        //printInfo() is for usage of Polymorphism
+        //Override the method for the specific user type.
         public override void printInfo()
         {
             Console.WriteLine("My name is " + getName() + " and I am a Ticket Officer");

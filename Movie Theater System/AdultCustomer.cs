@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
+    // Derived class from Customer.cs
+    // is-a relationship *Inheritance of (Adult Customer) from Customer class.
     internal class AdultCustomer : Customer
     {
         private int age;

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
-    //Inheritance parent
+    // The class being inherited from.
+    // Base class of ImaxTheater & RegularTheater.
     public abstract class Theather
     {
         private  int theatherID;
@@ -20,11 +21,14 @@ namespace Movie_Theater_System
         public int SeatCount { get => seatCount;  }
         public bool IsAvailable { get => isAvailable; }
 
-        public abstract bool isThatherAvailable();
-        public abstract void setID(int index);
         public abstract int getID();
-        public abstract void setSeat(int index);
         public abstract int getSeat();
 
+        public abstract void setID(int index);
+        public abstract void setSeat(int index);
+
+
+        //isTheaterAvaliable() method for further usage of Polymorphism in child classes.
+        public abstract bool isTheaterAvaliable();
     }
 }

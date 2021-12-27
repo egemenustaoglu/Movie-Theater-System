@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Movie_Theater_System
 {
+    // The class being inherited from.
+    // Base class of AdultCustomer, ChildCustomer & StudentCustomer. 
     abstract class Customer : User
     {
         private int age;

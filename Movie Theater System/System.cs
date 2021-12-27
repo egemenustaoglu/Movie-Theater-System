@@ -10,7 +10,7 @@ namespace Movie_Theater_System
             User TicketOfficer = new TicketOfficer("Egemen", 2);
             UserTest(Manager);
             UserTest(TicketOfficer);
-            Customer cust = new Customer(24 , "atakan akyaz");
+            Customer cust = new AdultCustomer(24 , "atakan akyazs");
             
         }
 

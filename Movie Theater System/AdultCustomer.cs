@@ -6,12 +6,13 @@ namespace Movie_Theater_System
 {
     // Derived class from Customer.cs
     // is-a relationship *Inheritance of (Adult Customer) from Customer class.
-    internal class AdultCustomer : Customer
+    class AdultCustomer : Customer
     {
         private int age;
         private string fullName;
-        public AdultCustomer() : base(Age , FullName)
+        public AdultCustomer(int Age , string FullName) : base(Age , FullName)
         {
+           
         }
 
         public static int Age { get; }

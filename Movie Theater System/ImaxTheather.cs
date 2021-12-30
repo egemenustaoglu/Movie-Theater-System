@@ -23,23 +23,23 @@ namespace Movie_Theater_System
             movie = Movie;
         }
         // get methods
-        public override int getID()
+        public override int GetID()
         {
             return imaxTheatherID;
         }
 
-        public override int getSeat()
+        public override int GetSeat()
         {
             return imaxSeatCount;
         }
         public string getMovie()
         {
             //call movie title from Moive class's getMovieTitle method which return string
-            return movie.getMovieTitle();
+            return movie.GetMovieTitle();
         }
         
         // set methods
-        public override void setID(int index)
+        public override void SetID(int index)
         {
             if (index >= 1)
             {
@@ -51,7 +51,7 @@ namespace Movie_Theater_System
             }
         }
 
-        public override void setSeat(int index)
+        public override void SetSeat(int index)
         {
             if (index >= 1)
             {
@@ -62,11 +62,11 @@ namespace Movie_Theater_System
                 Console.WriteLine("You should enter above 0 "); ;
             }
         }
-        public void setMovie(Movie movie)
+        public void SetMovie(Movie movie)
         {
             this.movie = movie;
         }
-        public void setImaxIsAvailable(bool availibilty)
+        public void SetImaxIsAvailable(bool availibilty)
         {
             imaxIsAvailable = availibilty;
         }
@@ -74,7 +74,7 @@ namespace Movie_Theater_System
 
         //isTheaterAvaliable() is for usage of Polymorphism
         //Override the method for the specific theater condition.
-        public override bool isTheaterAvaliable()
+        public override bool IsTheaterAvaliable()
         {
             return imaxIsAvailable;
         }

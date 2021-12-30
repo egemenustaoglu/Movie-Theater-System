@@ -9,12 +9,12 @@ namespace Movie_Theater_System
         private double payment;
         private double paymentBack;
 
-        public void pay()
+        public void Pay()
         {
 
         }
 
-        public void payBack() 
+        public void PayBack() 
         {
 
         }

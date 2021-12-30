@@ -15,6 +15,6 @@ namespace Movie_Theater_System
         }
 
         //printInfo() method for further usage of Polymorphism in child classes.
-        public abstract void printInfo();
+        public abstract void PrintInfo();
     }
 }

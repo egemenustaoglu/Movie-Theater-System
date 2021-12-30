@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Movie_Theater_System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Movie_Theater_System
-{
+
     // Derived class from User.cs
     // is-a relationship *Inheritance of (Manager) from User class.
     public class Manager : User
@@ -15,21 +16,31 @@ namespace Movie_Theater_System
             id = Id;
             name = Name;
         }
-        public void setName(String Name)
+        // get methods
+
+        public String GetName()
+        {
+            return name;
+        }
+        // set methods
+        public void SetName(String Name)
         {
             name = Name;
         }
-        public String getName()
+
+        public void SetMoviePrice(Movie movie ,double price)
         {
-            return name;
+        movie.SetBasePrice(price);
         }
 
         //printInfo() is for usage of Polymorphism
         //Override the method for the specific user type.
-        public override void printInfo()
+        public override void PrintInfo()
         {
-            Console.WriteLine("My name is " + getName() + " and I am the Manager");
+            Console.WriteLine("My name is " + GetName() + " and I am the Manager");
         }
+
+        
         
     }
-}
+

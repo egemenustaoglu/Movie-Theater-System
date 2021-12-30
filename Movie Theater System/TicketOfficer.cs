@@ -15,20 +15,20 @@ namespace Movie_Theater_System
             id = Id;
             name = Name;
         }
-        public  void setName(String Name)
+        public  void SetName(String Name)
         {
             name = Name;
         }
-        public String getName()
+        public String GetName()
         {
             return name;
         }
 
         //printInfo() is for usage of Polymorphism
         //Override the method for the specific user type.
-        public override void printInfo()
+        public override void PrintInfo()
         {
-            Console.WriteLine("My name is " + getName() + " and I am a Ticket Officer");
+            Console.WriteLine("My name is " + GetName() + " and I am a Ticket Officer");
         }
     }
 }

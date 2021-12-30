@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\egeme\\Desktop\\307 Project\\307 Project\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj": {}
+    "C:\\Users\\ataka\\Documents\\GitHub\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj": {}
   },
   "projects": {
-    "C:\\Users\\egeme\\Desktop\\307 Project\\307 Project\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj": {
+    "C:\\Users\\ataka\\Documents\\GitHub\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\egeme\\Desktop\\307 Project\\307 Project\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj",
+        "projectUniqueName": "C:\\Users\\ataka\\Documents\\GitHub\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj",
         "projectName": "Movie Theater System",
-        "projectPath": "C:\\Users\\egeme\\Desktop\\307 Project\\307 Project\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj",
-        "packagesPath": "C:\\Users\\egeme\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\egeme\\Desktop\\307 Project\\307 Project\\Movie-Theater-System\\Movie Theater System\\obj\\",
+        "projectPath": "C:\\Users\\ataka\\Documents\\GitHub\\Movie-Theater-System\\Movie Theater System\\Movie Theater System.csproj",
+        "packagesPath": "C:\\Users\\ataka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ataka\\Documents\\GitHub\\Movie-Theater-System\\Movie Theater System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\egeme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ataka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

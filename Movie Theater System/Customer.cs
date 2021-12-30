@@ -18,10 +18,10 @@ namespace Movie_Theater_System
             fullName = FullName;
         }
 
-        public abstract void requestTicket();
-        public abstract void requestSchedual();
-        public abstract void pay();
-        public override void printInfo()
+        public abstract void RequestTicket();
+        public abstract void RequestSchedual();
+        public abstract void Pay();
+        public override void PrintInfo()
         {
         }
     }

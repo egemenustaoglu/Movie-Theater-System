@@ -21,14 +21,14 @@ namespace Movie_Theater_System
         public int SeatCount { get => seatCount;  }
         public bool IsAvailable { get => isAvailable; }
 
-        public abstract int getID();
-        public abstract int getSeat();
+        public abstract int GetID();
+        public abstract int GetSeat();
 
-        public abstract void setID(int index);
-        public abstract void setSeat(int index);
+        public abstract void SetID(int index);
+        public abstract void SetSeat(int index);
 
 
         //isTheaterAvaliable() method for further usage of Polymorphism in child classes.
-        public abstract bool isTheaterAvaliable();
+        public abstract bool IsTheaterAvaliable();
     }
 }

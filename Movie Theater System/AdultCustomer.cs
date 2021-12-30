@@ -18,19 +18,19 @@ namespace Movie_Theater_System
         public static int Age { get; }
         public static string FullName { get; }
 
-        public override void pay()
+        public override void Pay()
         {
             
         }
-        public override void requestSchedual()
+        public override void RequestSchedual()
         {
             
         }
-        public override void requestTicket()
+        public override void RequestTicket()
         {
             
         }
-        public override void printInfo()
+        public override void PrintInfo()
         {
 
         }

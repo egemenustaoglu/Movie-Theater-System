@@ -96,8 +96,9 @@ namespace Movie_Theater_System
                 Console.ResetColor();
             }
         }
-        //isTheaterAvaliable() method for further usage of Polymorphism in child classes.
-        public abstract bool IsTheaterAvaliable();
+        //MakeGeneralDiscount() method for further usage of Polymorphism in child classes.
+//Bu methot abstract diğer 2 theather child ında override edip ikisine farklı indirim miktarları giricen daha sonra system da makedisc methoduna TheatherSaloon objesi alıcan --> System.cs --> 31
+        public abstract void MakeGeneralDiscount();
     }
     public class SaloonException : Exception
     {

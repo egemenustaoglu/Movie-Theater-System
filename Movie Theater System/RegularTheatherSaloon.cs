@@ -36,11 +36,11 @@ namespace Movie_Theater_System
             rIsAvailable = availibilty;
         }
 
-        //isTheaterAvaliable() is for usage of Polymorphism
-        //Override the method for the specific theater condition.
-        public override bool IsTheaterAvaliable()
+        //MakeGeneralDiscount() is for usage of Polymorphism
+        //Override the method for the specific theater discount.
+        public override void MakeGeneralDiscount()
         {
-            return rIsAvailable;
+
         }
 
 

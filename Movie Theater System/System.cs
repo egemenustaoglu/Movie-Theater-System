@@ -13,7 +13,7 @@ namespace Movie_Theater_System
             UserTest(TicketOfficer);
             Movie mov = new Movie("Egemen sikmece");
             RegularTheatherSaloon saloon = new RegularTheatherSaloon(1,10,true,mov);
-            Console.WriteLine(saloon.GetID() + " " + saloon.GetSeat() + " " + saloon.GetMovie() + " " + saloon.IsTheaterAvaliable());
+            Console.WriteLine(saloon.GetID() + " " + saloon.GetSeat() + " " + saloon.GetMovie() );
             /*
             Console.WriteLine(mov.GetBasePrice());s
             mov.SetBasePrice(2);
@@ -27,6 +27,11 @@ namespace Movie_Theater_System
         public static void UserTest(User user)
         {
             user.PrintInfo();
+        }
+//Burda verdiğin parametreye göre RegularTheatherSaloon ise ayrı IMACTheatherSaloon ise ayrı indirimler uygulanıcak
+        public static void MakeDiscount(TheatherSaloon saloon)
+        {
+            saloon.MakeGeneralDiscount();
         }
     }
 }

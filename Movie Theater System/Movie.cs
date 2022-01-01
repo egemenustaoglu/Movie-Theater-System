@@ -15,6 +15,10 @@ namespace Movie_Theater_System
         {
 
         }
+        public Movie(string movieTitle)
+        {
+            this.movieTitle = movieTitle;
+        }
 
         public Movie(double basePrice)
         {
@@ -47,7 +51,7 @@ namespace Movie_Theater_System
                     // check if the base price is lower than zere if it is throw a exception
                 if ((double)basePrice < 0.0)
                 {
-                    throw new PriceException("You enter a price which is belove the '0.0' so it is not allowed for ticket base pricing...");
+                    throw new PriceException("You enter a price which is belove the '0.0' .It is not allowed for ticket base pricing...");
                 }
                 else
                 {
@@ -56,7 +60,9 @@ namespace Movie_Theater_System
             }
             catch(PriceException e)
             {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine(e.Message);
+                Console.ResetColor();
             }
            
         }

@@ -6,7 +6,7 @@ namespace Movie_Theater_System
 {
     // Derived class from Theater.cs
     // is-a relationship *Inheritance of (Imax Theater) from Theater class.
-    class ImaxTheather : Theather
+    class ImaxTheatherSaloon : TheatherSaloon
     {
         private int imaxTheatherID;
         private int imaxSeatCount;
@@ -15,11 +15,8 @@ namespace Movie_Theater_System
         Movie movie = new Movie();
 
 
-        public ImaxTheather(int IMAXTheatherID, int IMAXSeatCount , bool ImaxIsAvailable , Movie Movie)
+        public ImaxTheatherSaloon(int IMAXTheatherID, int IMAXSeatCount , bool ImaxIsAvailable , Movie Movie) : base(IMAXTheatherID, IMAXSeatCount, ImaxIsAvailable)
         {
-            imaxTheatherID = IMAXTheatherID;
-            imaxSeatCount = IMAXSeatCount;
-            imaxIsAvailable = ImaxIsAvailable;
             movie = Movie;
         }
         // get methods
@@ -41,26 +38,45 @@ namespace Movie_Theater_System
         // set methods
         public override void SetID(int index)
         {
-            if (index >= 1)
+            try
             {
-                imaxTheatherID = index;
+                if (index > 0 )
+                {
+                    imaxTheatherID = index;
+                }
+                else
+                {
+                    throw new SaloonException("You should enter ID above or equal the '0' ");
+                }
             }
-            else
+            catch(SaloonException e)
             {
-                Console.WriteLine("You should enter above 0 "); ;
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
             }
         }
 
         public override void SetSeat(int index)
         {
-            if (index >= 1)
+            try
             {
-                imaxSeatCount = index;
+                if (index >= 1)
+                {
+                    imaxSeatCount = index;
+                }
+                else
+                {
+                    throw new SaloonException("You should enter seat number above the '0' ");
+                }
             }
-            else
+            catch(SaloonException e)
             {
-                Console.WriteLine("You should enter above 0 "); ;
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
             }
+           
         }
         public void SetMovie(Movie movie)
         {
@@ -81,4 +97,5 @@ namespace Movie_Theater_System
 
 
     }
+   
 }

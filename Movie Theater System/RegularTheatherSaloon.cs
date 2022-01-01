@@ -6,7 +6,7 @@ namespace Movie_Theater_System
 {
     // Derived class from Theater.cs
     // is-a relationship *Inheritance of (Regular Theater) from Theater class.
-    class RegularTheather : Theather
+    class RegularTheatherSaloon : TheatherSaloon
     {
         private int rTheatherID;
         private int rSeatCount;
@@ -15,11 +15,8 @@ namespace Movie_Theater_System
         Movie movie = new Movie();
 
 
-        public RegularTheather(int RTheatherID, int RSeatCount , bool RIsAvailable , Movie Movie)
+        public RegularTheatherSaloon(int RTheatherID, int RSeatCount , bool RIsAvailable , Movie Movie) : base(RTheatherID , RSeatCount , RIsAvailable)
         {
-            rTheatherID = RTheatherID;
-            rSeatCount = RSeatCount;
-            rIsAvailable = RIsAvailable;
             movie = Movie;
         }
 
@@ -37,38 +34,53 @@ namespace Movie_Theater_System
         {
             return movie.GetMovieTitle();
         }
-      
         // set methods
         public override void SetID(int index)
         {
-            if(index >= 1)
+            try
             {
-                rTheatherID = index;
+                if(index >= 1)
+                    {
+                        rTheatherID = index;
+                    }
+                else
+                    {
+                        throw new SaloonException("You should enter ID above or equal the '0' ");
+                    }
             }
-            else
+            catch(SaloonException e)
             {
-                Console.WriteLine("You should enter above 0 "); ;
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
             }
         }
-
         public override void SetSeat(int index)
         {
-            if (index >= 1)
+            try
             {
-                rSeatCount = index;
+                if (index >= 1)
+                {
+                    rSeatCount = index;
+                }
+                else
+                {
+                    throw new SaloonException("You should enter seat number above the '0' ");
+                }
             }
-            else
+            catch (SaloonException e)
             {
-                Console.WriteLine("You should enter above 0 "); ;
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
             }
         }
         public void SetMovie(Movie movie)
         {
             this.movie = movie;
         }
-
         //SANKI BU METOD BURDA OLMAMALI
-        public void SetImaxIsAvailable(bool availibilty)
+        public void SetRegularTheatherIsAvaliable(bool availibilty)
         {
             rIsAvailable = availibilty;
         }
@@ -80,5 +92,7 @@ namespace Movie_Theater_System
             return rIsAvailable;
         }
 
+
     }
+   
 }

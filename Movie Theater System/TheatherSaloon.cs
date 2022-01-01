@@ -46,15 +46,56 @@ namespace Movie_Theater_System
             }
             
         }
-
         // get methods 
-        public abstract int GetID();
-        public abstract int GetSeat();
+        public int GetID()
+        {
+            return theatherID;
+        }
+        public int GetSeat()
+        {
+            return seatCount;
+        }
         // set methods 
-        public abstract void SetID(int index);
-        public abstract void SetSeat(int index);
-
-
+        public void SetID(int index)
+        {
+            try
+            {
+                if (index >= 1)
+                {
+                    theatherID = index;
+                }
+                else
+                {
+                    throw new SaloonException("You should enter ID above or equal the '0' ");
+                }
+            }
+            catch (SaloonException e)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
+            }
+        }
+        public void SetSeat(int index)
+        {
+            try
+            {
+                if (index >= 1)
+                {
+                    seatCount = index;
+                }
+                else
+                {
+                    throw new SaloonException("You should enter seat number above the '0' ");
+                }
+            }
+            catch (SaloonException e)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
+            }
+        }
         //isTheaterAvaliable() method for further usage of Polymorphism in child classes.
         public abstract bool IsTheaterAvaliable();
     }

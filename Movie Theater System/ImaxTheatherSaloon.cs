@@ -20,15 +20,7 @@ namespace Movie_Theater_System
             movie = Movie;
         }
         // get methods
-        public override int GetID()
-        {
-            return imaxTheatherID;
-        }
-
-        public override int GetSeat()
-        {
-            return imaxSeatCount;
-        }
+        
         public string getMovie()
         {
             //call movie title from Moive class's getMovieTitle method which return string
@@ -36,48 +28,7 @@ namespace Movie_Theater_System
         }
         
         // set methods
-        public override void SetID(int index)
-        {
-            try
-            {
-                if (index > 0 )
-                {
-                    imaxTheatherID = index;
-                }
-                else
-                {
-                    throw new SaloonException("You should enter ID above or equal the '0' ");
-                }
-            }
-            catch(SaloonException e)
-            {
-                Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine(e.Message);
-                Console.ResetColor();
-            }
-        }
-
-        public override void SetSeat(int index)
-        {
-            try
-            {
-                if (index >= 1)
-                {
-                    imaxSeatCount = index;
-                }
-                else
-                {
-                    throw new SaloonException("You should enter seat number above the '0' ");
-                }
-            }
-            catch(SaloonException e)
-            {
-                Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine(e.Message);
-                Console.ResetColor();
-            }
-           
-        }
+      
         public void SetMovie(Movie movie)
         {
             this.movie = movie;

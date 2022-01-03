@@ -16,7 +16,7 @@ namespace Movie_Theater_System
         public int SeatCount { get => seatCount; set => seatCount = value; }
         public bool IsAvailable { get => isAvailable; set => isAvailable = value; }
 
-        public TheatherSaloon(int theatherID , int seatCount , bool isAvailable)
+        public TheatherSaloon(int theatherID , int seatCount , bool isAvailable )
         {
             try
             {
@@ -37,6 +37,7 @@ namespace Movie_Theater_System
                     throw new SaloonException("You should enter seat number above  the '0' ");
                 }
                 this.IsAvailable = isAvailable;
+              
             }
             catch(SaloonException e)
             {
@@ -55,6 +56,7 @@ namespace Movie_Theater_System
         {
             return seatCount;
         }
+       
         // set methods 
         public void SetID(int index)
         {
@@ -96,10 +98,13 @@ namespace Movie_Theater_System
                 Console.ResetColor();
             }
         }
+     
+
         //MakeGeneralDiscount() method for further usage of Polymorphism in child classes.
-//Bu methot abstract diğer 2 theather child ında override edip ikisine farklı indirim miktarları giricen daha sonra system da makedisc methoduna TheatherSaloon objesi alıcan --> System.cs --> 31
-        public abstract void MakeGeneralDiscount();
+        // child classes must override this method because it is abstract method and we can specify this method's discount amount depending to which theather saloon is it . --> System.cs --> 31
+        public abstract void MakeFixedDiscount();
     }
+    // To throw exceprtion we create our exception class which is inherit from Exception generic class and we use it to display our error message.
     public class SaloonException : Exception
     {
         public SaloonException(string Message) : base(Message)

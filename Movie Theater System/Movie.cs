@@ -25,6 +25,12 @@ namespace Movie_Theater_System
             this.basePrice = basePrice;
         }
 
+        public Movie(string movieTitle , double basePrice)
+        {
+            this.basePrice = basePrice;
+            this.movieTitle = movieTitle;
+        }
+
         // get methods
         public string GetMovieTitle()
         {

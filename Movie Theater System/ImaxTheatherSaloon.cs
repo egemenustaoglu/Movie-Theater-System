@@ -11,7 +11,9 @@ namespace Movie_Theater_System
         private int imaxTheatherID;
         private int imaxSeatCount;
         private bool imaxIsAvailable;
-        // has-a relationship ImaxTheather has a movie inside
+        // has-a relationship RegularTheatherSaloon has a movie inside
+        // We are making shallow coppie of the movie which is givven us on constructor. That why when we change movie's basePrice in MakeGeneralDiscount method (--> 46)
+        //We also change the basePrice of the movie which is created in system class
         Movie movie = new Movie();
 
 
@@ -41,9 +43,13 @@ namespace Movie_Theater_System
 
         //MakeGeneralDiscount() is for usage of Polymorphism
         //Override the method for the specific theater discount.
-        public override void MakeGeneralDiscount()
+        public override void MakeFixedDiscount()
         {
-
+            double basePrice = movie.GetBasePrice();
+            // we take fixed discount amount with convert.ToDounle methot to make sure division calculation not return 0
+            basePrice = basePrice - (basePrice * (Convert.ToDouble(10) / 100));
+            movie.SetBasePrice(basePrice);
+            Console.WriteLine("Base price of the movie which is shown on this saloon is set to : " + movie.GetBasePrice());
         }
 
 

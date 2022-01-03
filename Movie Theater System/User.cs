@@ -8,12 +8,22 @@ namespace Movie_Theater_System
     // Base class of Manager & Ticket officer.
     public abstract class User
     {
-
-        public User()
+        private String name;
+        public User(String Name)
         {
-        
+            name = Name;
         }
-
+       
+        // get methods
+        public String GetName()
+        {
+            return name;
+        }
+        // set methods
+        public void SetName(String Name)
+        {
+            name = Name;
+        }
         //printInfo() method for further usage of Polymorphism in child classes.
         public abstract void PrintInfo();
     }

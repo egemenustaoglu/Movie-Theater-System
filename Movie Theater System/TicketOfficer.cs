@@ -10,19 +10,12 @@ namespace Movie_Theater_System
     {
         private String name;
         private int id;
-        public TicketOfficer(String Name, int Id) 
+        public TicketOfficer(String Name, int Id) :base (Name)
         {
             id = Id;
             name = Name;
         }
-        public  void SetName(String Name)
-        {
-            name = Name;
-        }
-        public String GetName()
-        {
-            return name;
-        }
+        
 
         //printInfo() is for usage of Polymorphism
         //Override the method for the specific user type.

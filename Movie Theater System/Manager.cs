@@ -11,23 +11,11 @@ using System.Text;
     {
         private String name;
         private int id;
-        public Manager(String Name , int Id)
+        public Manager(String Name , int Id) : base(Name)
         {
             id = Id;
             name = Name;
         }
-        // get methods
-
-        public String GetName()
-        {
-            return name;
-        }
-        // set methods
-        public void SetName(String Name)
-        {
-            name = Name;
-        }
-
         public void SetMoviePrice(Movie movie ,double price)
         {
         movie.SetBasePrice(price);

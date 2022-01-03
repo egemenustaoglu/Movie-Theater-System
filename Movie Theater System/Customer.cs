@@ -11,11 +11,13 @@ namespace Movie_Theater_System
         private int age;
         private string fullName;
 
+        public int Age { get => age; set => age = value; }
+        public string FullName { get => fullName; set => fullName = value; }
 
-        public Customer(int Age , string FullName)
+        public Customer( string Name , int Age ) : base(Name)
         {
-            age = Age;
-            fullName = FullName;
+            this.Age = Age;
+            FullName = Name;
         }
 
         public abstract void RequestTicket();

@@ -10,12 +10,10 @@ namespace Movie_Theater_System
     {
         private int age;
         private string fullName;
-        public StudentCustomer() : base(Age, FullName)
+        public StudentCustomer(String Name , int Age) : base(Name , Age)
         {
         }
 
-        public static int Age { get; }
-        public static string FullName { get; }
 
         public override void Pay()
         {

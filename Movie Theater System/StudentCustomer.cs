@@ -9,25 +9,18 @@ namespace Movie_Theater_System
     class StudentCustomer : Customer
     {
         private int age;
-        private string fullName;
+        private string Name;
         public StudentCustomer(String Name , int Age) : base(Name , Age)
         {
         }
 
 
-        public override void Pay()
-        {
-
-        }
+        
         public override void RequestSchedual()
         {
 
         }
         public override void RequestTicket()
-        {
-
-        }
-        public override void PrintInfo()
         {
 
         }

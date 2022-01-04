@@ -14,7 +14,7 @@ namespace Movie_Theater_System
         public int Age { get => age; set => age = value; }
         public string FullName { get => fullName; set => fullName = value; }
 
-        public Customer( string Name , int Age ) : base(Name)
+        public Customer( string Name , int Age ) : base(Name ,Age)
         {
             this.Age = Age;
             FullName = Name;
@@ -22,7 +22,10 @@ namespace Movie_Theater_System
 
         public abstract void RequestTicket();
         public abstract void RequestSchedual();
-        public abstract void Pay();
+        public void Pay() 
+        { 
+
+        }
         public override void PrintInfo()
         {
         }

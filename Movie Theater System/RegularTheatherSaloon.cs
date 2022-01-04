@@ -8,8 +8,6 @@ namespace Movie_Theater_System
     // is-a relationship *Inheritance of (Regular Theater) from Theater class.
     class RegularTheatherSaloon : TheatherSaloon
     {
-        private int rTheatherID;
-        private int rSeatCount;
         private bool rIsAvailable;
         // has-a relationship RegularTheatherSaloon has a movie inside
         // We are making shallow coppie of the movie which is givven us on constructor. That why when we change movie's basePrice in MakeGeneralDiscount method (--> 44)
@@ -28,8 +26,12 @@ namespace Movie_Theater_System
         {
             return movie.GetMovieTitle();
         }
+        public bool getRIsAvailable()
+        {
+            return rIsAvailable;
+        }
         // set methods
-        
+
         public void SetMovie(Movie movie)
         {
             this.movie = movie;

@@ -8,14 +8,11 @@ namespace Movie_Theater_System
     // is-a relationship *Inheritance of (Imax Theater) from Theater class.
     class ImaxTheatherSaloon : TheatherSaloon
     {
-        private int imaxTheatherID;
-        private int imaxSeatCount;
         private bool imaxIsAvailable;
         // has-a relationship RegularTheatherSaloon has a movie inside
         // We are making shallow coppie of the movie which is givven us on constructor. That why when we change movie's basePrice in MakeGeneralDiscount method (--> 46)
         //We also change the basePrice of the movie which is created in system class
         Movie movie = new Movie();
-
 
         public ImaxTheatherSaloon(int IMAXTheatherID, int IMAXSeatCount , bool ImaxIsAvailable , Movie Movie) : base(IMAXTheatherID, IMAXSeatCount, ImaxIsAvailable)
         {
@@ -28,7 +25,10 @@ namespace Movie_Theater_System
             //call movie title from Moive class's getMovieTitle method which return string
             return movie.GetMovieTitle();
         }
-        
+        public bool getImaxIsAvailable()
+        {
+            return imaxIsAvailable;
+        }
         // set methods
       
         public void SetMovie(Movie movie)

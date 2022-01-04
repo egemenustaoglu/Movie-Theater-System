@@ -16,10 +16,7 @@ namespace Movie_Theater_System
         }
 
 
-        public override void Pay()
-        {
-            
-        }
+       
         public override void RequestSchedual()
         {
             
@@ -27,10 +24,6 @@ namespace Movie_Theater_System
         public override void RequestTicket()
         {
             
-        }
-        public override void PrintInfo()
-        {
-
         }
     }
 }

@@ -86,19 +86,18 @@ namespace Movie_Theater_System
             this.isIMAX = isIMAX;
         }
         
-        public static string ListMovies()
+        public static void ListMovies()
         {
             Console.WriteLine(System.indent + "***Movie List***");
             movieListCounter = 1;
             foreach (Movie movie in System.movieList)
             {
                 Console.WriteLine(movieListCounter + ". Movie's informations are \n" +
-                    System.indent + "Title of the movie : " + movie.GetMovieTitle()+"\n" +
-                    System.indent + "Price of the movie : " + movie.GetBasePrice()+"\n" +
-                    System.indent + "Is the movie Imax  : " + movie.GetIsIMAX());
+                     "Title of the movie : " + movie.GetMovieTitle()+"\n" +
+                     "Price of the movie : " + movie.GetBasePrice()+"\n" +
+                     "Is the movie Imax  : " + movie.GetIsIMAX());
                 movieListCounter += 1;
             }
-            return null;
         }
 
         public static void addMovieToList()

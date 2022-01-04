@@ -46,7 +46,7 @@ namespace Movie_Theater_System
             Console.WriteLine("Manager's name is : " + GetName() + "\n" +
                 "Manager's id is : " + id);
         }
-        public void ManagerPanel()
+        public static void ManagerPanel()  
         {
             bool flag = true;
            
@@ -56,7 +56,13 @@ namespace Movie_Theater_System
                 Console.WriteLine(System.indent + "*** Welcome to Manager panel ***\n" +
                   "Press 1 to set a movie's price\n" +
                   "Press 2 to add a new movie to movie list\n" +
-                  "Press 3 to add new Ticket Officer");
+                  "Press 3 to to list all movies\n" +
+                  "Press 4 to add new Ticket Officer\n" +
+                  "Press 5 to set new Information to existing Ticket Officer\n" +
+                  "Press 6 to print Ticket Officeers\n" +
+                  "Press 7 to to print information of manager\n" +
+                  "Press 8 to set new Informations to existing Theather\n" +
+                  "Press 9 to Exit from manager Panel");
                 int index = Convert.ToInt32(Console.ReadLine());
                 switch (index)
                 {
@@ -74,7 +80,31 @@ namespace Movie_Theater_System
                         Movie.addMovieToList();
                         break;
                     case 3:
-                        TicketOfficer.createNewTicketOfiifcer();
+                        Movie.ListMovies();
+                        break;
+                    case 4:
+                        TicketOfficer.CreateNewTicketOfiifcer();
+                        break;
+                    case 5:
+                        TicketOfficer.ChangeTicketOfficer();
+                        break;
+                    case 6:
+                        Console.WriteLine(System.indent + "***Printing Ticket Officers***");
+                        foreach (TicketOfficer ticketOfficer in System.ticketOfficerList)
+                        {
+                            Console.Write("*");
+                            System.UserInformation(ticketOfficer);
+                        }
+                        break;
+                    case 7:
+                        System.UserInformation(Manager.GetManager());
+                        break;
+                    case 8:
+                        TheatherSaloon.ChangeSaloonInformation();
+                        break;
+                    case 9:
+                        Console.WriteLine("Exiting from manager panel");
+                        flag = false;
                         break;
 
                 }

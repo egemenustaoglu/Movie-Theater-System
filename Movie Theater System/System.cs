@@ -9,6 +9,7 @@ namespace Movie_Theater_System
         public static string indent = new string(' ', 4);
         public static List<Movie> movieList = new List<Movie>();
         public static List<TicketOfficer> ticketOfficerList = new List<TicketOfficer>();
+        public static List<TheatherSaloon> theatherSaloonList = new List<TheatherSaloon>();
         static void Main(string[] args)
         {
             Movie mov = new Movie("Egemen sikmece", 100, false);
@@ -20,7 +21,13 @@ namespace Movie_Theater_System
             movieList.Add(mov2);
             movieList.Add(mov3);
             movieList.Add(mov4);
-            
+            // *********************************Tiyatro salonları önceden oluşturulucak
+            RegularTheatherSaloon saloon = new RegularTheatherSaloon(1, 10, true, mov);
+            RegularTheatherSaloon saloon2 = new RegularTheatherSaloon(2, 102, true, mov);
+            RegularTheatherSaloon saloon3 = new RegularTheatherSaloon(3, 100, true, mov);
+            theatherSaloonList.Add(saloon);
+            theatherSaloonList.Add(saloon2);
+            theatherSaloonList.Add(saloon3);
             bool flag = true;
            
            
@@ -35,8 +42,7 @@ namespace Movie_Theater_System
                 switch (index)
                 {
                     case 1:
-                        Manager manager = Manager.GetManager();
-                        manager.ManagerPanel();
+                        Manager.ManagerPanel();
                         break;
                     case 2:
                         break;
@@ -83,7 +89,7 @@ namespace Movie_Theater_System
 
         //Here we create a method for display the user's information and this method call printInfo method from the User then by the type of user (Manager , ticketofficer or customer)
         //it display differet type of overrided printInfo methods . This is polymorphism 
-        public static void UserTest(User user)
+        public static void UserInformation(User user)   
         {
             user.PrintInfo();
         }

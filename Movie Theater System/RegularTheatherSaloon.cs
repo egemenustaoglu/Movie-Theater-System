@@ -22,9 +22,9 @@ namespace Movie_Theater_System
         }
 
         // get methods
-        public string GetMovie()
+        public Movie GetMovie()
         {
-            return movie.GetMovieTitle();
+            return movie;
         }
         public bool getRIsAvailable()
         {

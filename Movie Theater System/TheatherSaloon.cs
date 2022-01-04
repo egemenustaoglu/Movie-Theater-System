@@ -15,7 +15,10 @@ namespace Movie_Theater_System
         public int TheatherID { get => theatherID; set => theatherID = value; }
         public int SeatCount { get => seatCount; set => seatCount = value; }
         public bool IsAvailable { get => isAvailable; set => isAvailable = value; }
+        public TheatherSaloon()
+        {
 
+        }
         public TheatherSaloon(int theatherID , int seatCount , bool isAvailable )
         {
             try
@@ -103,6 +106,51 @@ namespace Movie_Theater_System
         //MakeGeneralDiscount() method for further usage of Polymorphism in child classes.
         // child classes must override this method because it is abstract method and we can specify this method's discount amount depending to which theather saloon is it . --> System.cs --> 31
         public abstract void MakeFixedDiscount();
+
+        public static void ChangeSaloonInformation()
+        {
+            int SalooCounter = 1;
+            Console.WriteLine(System.indent + "***Theather Saloon List***");
+            foreach (TheatherSaloon theatherSaloon in System.theatherSaloonList)
+            {
+                Console.WriteLine(SalooCounter + ". Saloon's informations are \n" +
+                     "ID of the Saloon : " + theatherSaloon.GetID() + "\n" +
+                     "Seat Count of the Saloon : " + theatherSaloon.GetSeat());
+                SalooCounter += 1;
+            }
+            try
+            {
+                Console.WriteLine("Select which Theather Saloon will you be modify");
+                int saloonNumber = Convert.ToInt32(Console.ReadLine());
+                if (saloonNumber < 0)
+                {
+                    throw new SaloonException("Your selection should be in the list");
+                }
+                TheatherSaloon changedTheatherSaloon = System.theatherSaloonList[saloonNumber-1];
+                Console.WriteLine(System.indent+"***Changing Information***");
+                Console.WriteLine("Enter new id for your Saloon");
+                int newSaloonID = Convert.ToInt32(Console.ReadLine());
+                if (newSaloonID < 0)
+                {
+                    throw new SaloonException("Your new ID should be 0 or more");
+                }
+                Console.WriteLine("Enter new seat count for your Saloon");
+                int newSalooSeatCount = Convert.ToInt32(Console.ReadLine());
+                if (newSalooSeatCount < 0)
+                {
+                    throw new SaloonException("Your new Seat Count should be 0 or more");
+                }
+                changedTheatherSaloon.SetID(newSaloonID);
+                changedTheatherSaloon.SetSeat(newSalooSeatCount);
+            }
+            catch(SaloonException e)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
+            }
+        }
+
     }
     // To throw exceprtion we create our exception class which is inherit from Exception generic class and we use it to display our error message.
     public class SaloonException : Exception

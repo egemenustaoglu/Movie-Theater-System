@@ -57,6 +57,7 @@ namespace Movie_Theater_System
                         break;
                 }
             }
+            Console.WriteLine(customerList[0].GetPassword());
             
            /* Movie mov = new Movie("Egemen sikmece", 100 , false);
             Manager manager = Manager.GetManager();

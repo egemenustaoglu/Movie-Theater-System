@@ -40,7 +40,7 @@ namespace Movie_Theater_System
             {
                 Console.WriteLine(System.indent + "*** Ticket Officet Panel ***\n" +
                 "Press 1 to diplay Movies\n" +
-                "");
+                "Press 2 to create new Customer");
                 int index = Convert.ToInt32(Console.ReadLine());
                 switch (index)
                 {
@@ -48,11 +48,59 @@ namespace Movie_Theater_System
                         Movie.ListMovies();
                         break;
                     case 2:
+                        CreateNewCustomer();
                         break;
                 }
             }
-            
 
+        }
+
+        public static void CreateNewCustomer()
+        {
+            try 
+            {
+                Console.WriteLine("Give a name to customer ...");
+                string newCustomerName = Console.ReadLine();
+                Console.WriteLine("Give an age to customer ...");
+                int newCustomerAge = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Give a balance to customer ...");
+                double newCustomerBalance = Convert.ToDouble(Console.ReadLine());
+                string newCustomerPassword = Customer.EnterYourOwnPassword();
+                if (newCustomerAge <= 12 && newCustomerAge >= 0)
+                {
+                    Customer childCustomer = new ChildCustomer(newCustomerName, newCustomerAge, newCustomerBalance);
+                    childCustomer.SetPassword(newCustomerPassword);
+                    System.customerList.Add(childCustomer);
+                }
+                else if (newCustomerAge > 12)
+                {
+                    Console.WriteLine("Is customer a student 'T' or 'F'");
+                    string newCustomerIsStudent = Console.ReadLine();
+                    if (newCustomerIsStudent == "T" || newCustomerIsStudent == "t")
+                    {
+                        Customer studentCustomer = new StudentCustomer(newCustomerName, newCustomerAge, newCustomerBalance);
+                        studentCustomer.SetPassword(newCustomerPassword);
+                        System.customerList.Add(studentCustomer);
+
+                    }
+                    else if (newCustomerIsStudent == "F" || newCustomerIsStudent == "f")
+                    {
+                        Customer adultCustomer = new AdultCustomer(newCustomerName, newCustomerAge, newCustomerBalance);
+                        adultCustomer.SetPassword(newCustomerPassword);
+                        System.customerList.Add(adultCustomer);
+                    }
+                }
+                else
+                {
+                    throw new UserException("Your age must be 0 or more");
+                }
+            }
+            catch (UserException e)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
+            }
         }
         public static void CreateNewTicketOfiifcer()
         {

@@ -11,10 +11,12 @@ namespace Movie_Theater_System
         private int age;
         private string fullName;
         private double balance;
+        private string password;
 
         public int Age { get => age; set => age = value; }
         public string FullName { get => fullName; set => fullName = value; }
         public double Balance { get => balance; set => balance = value; }
+        public string Password { get => password; set => password = value; }
 
         public Customer( string Name , int Age ,double Balance) : base(Name ,Age)
         {
@@ -24,11 +26,19 @@ namespace Movie_Theater_System
         }
 
         //get methods
+        public string GetPassword()
+        {
+            return password;
+        }
         public double GetBalance()
         {
             return Balance;
         }
         //set methods
+        public void SetPassword(String password)
+        {
+            this.password = password;
+        }
         public void SetBalance(double newBalance)
         {
             Balance = newBalance;
@@ -58,6 +68,12 @@ namespace Movie_Theater_System
         public abstract void CustomerPanel();
         public override void PrintInfo()
         {
+        }
+        public static string EnterYourOwnPassword()
+        {
+            Console.WriteLine("*** Please set a new password for enterence to Movie Theather System***");
+            string password = Console.ReadLine();
+            return password;
         }
     }
 }

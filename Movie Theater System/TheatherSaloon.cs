@@ -111,6 +111,19 @@ namespace Movie_Theater_System
             isAvailable = change;
         }
      
+        public static void CreateTheatherSaloons()
+        {
+            TheatherSaloon saloon1 = new ImaxTheatherSaloon(1, 50, true);
+            TheatherSaloon saloon2 = new RegularTheatherSaloon(2, 75, false);
+            TheatherSaloon saloon3 = new ImaxTheatherSaloon(3, 34, true);
+            TheatherSaloon saloon4 = new ImaxTheatherSaloon(4, 45, true);
+            TheatherSaloon saloon5 = new RegularTheatherSaloon(5, 100, false);
+            System.theatherSaloonList.Add(saloon1);
+            System.theatherSaloonList.Add(saloon2);
+            System.theatherSaloonList.Add(saloon3);
+            System.theatherSaloonList.Add(saloon4);
+            System.theatherSaloonList.Add(saloon5);
+        }
 
         //MakeGeneralDiscount() method for further usage of Polymorphism in child classes.
         // child classes must override this method because it is abstract method and we can specify this method's discount amount depending to which theather saloon is it . --> System.cs --> 31

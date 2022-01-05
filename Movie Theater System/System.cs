@@ -22,14 +22,10 @@ namespace Movie_Theater_System
             movieList.Add(mov2);
             movieList.Add(mov3);
             movieList.Add(mov4);
-            // *********************************Tiyatro salonları önceden oluşturulucak
-            RegularTheatherSaloon saloon = new RegularTheatherSaloon(1, 10, true);
-            RegularTheatherSaloon saloon2 = new RegularTheatherSaloon(2, 102, true);
-            RegularTheatherSaloon saloon3 = new RegularTheatherSaloon(3, 100, true);
-            theatherSaloonList.Add(saloon);
-            theatherSaloonList.Add(saloon2);
-            theatherSaloonList.Add(saloon3);
-            bool flag = true;
+            // We create our Theather Saloons before we go to Movie Theather System's panel
+            TheatherSaloon.CreateTheatherSaloons();
+            
+            bool flag = true;   
 
             Customer cust = new ChildCustomer("Atakan",23, 110);
             while (flag)

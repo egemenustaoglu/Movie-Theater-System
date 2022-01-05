@@ -10,7 +10,8 @@ namespace Movie_Theater_System
     {
         private int age;
         private string Name;
-        public ChildCustomer(String Name, int Age) : base(Name, Age)
+        private Double Balance;
+        public ChildCustomer(String Name, int Age , Double Balance) : base(Name, Age,Balance)
         {
         }
 

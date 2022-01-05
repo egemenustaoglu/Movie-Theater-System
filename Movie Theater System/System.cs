@@ -29,6 +29,9 @@ namespace Movie_Theater_System
             theatherSaloonList.Add(saloon2);
             theatherSaloonList.Add(saloon3);
             bool flag = true;
+
+            Customer cust = new AdultCustomer("Atakan",23, 110);
+            cust.Pay();
            
            
             while (flag)
@@ -45,6 +48,7 @@ namespace Movie_Theater_System
                         Manager.ManagerPanel();
                         break;
                     case 2:
+                        TicketOfficer.TicketOfficerPanel();
                         break;
                     case 3:
                         break;

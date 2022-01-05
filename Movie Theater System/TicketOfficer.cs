@@ -30,7 +30,27 @@ namespace Movie_Theater_System
             Console.WriteLine("Ticket officer's name is : " + GetName() + "\n" +
                 "Ticket officer's id is : " + GetId());
         }
+        public static void TicketOfficerPanel()
+        {
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine(System.indent + "*** Ticket Officet Panel ***\n" +
+                "Press 1 to diplay Movies\n" +
+                "");
+                int index = Convert.ToInt32(Console.ReadLine());
+                switch (index)
+                {
+                    case 1:
+                        Movie.ListMovies();
+                        break;
+                    case 2:
+                        break;
+                }
+            }
+            
 
+        }
         public static void CreateNewTicketOfiifcer()
         {
             try
@@ -100,6 +120,12 @@ namespace Movie_Theater_System
                 Console.ResetColor();
             }
 
+        }
+        public static void TakePayment(Customer customer)
+        {
+            Console.WriteLine(customer.GetBalance());
+            customer.SetBalance(10);
+            Console.WriteLine(customer.GetBalance());
         }
     }
 }

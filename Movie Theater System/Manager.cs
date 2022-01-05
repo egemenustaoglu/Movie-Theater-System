@@ -62,7 +62,7 @@ namespace Movie_Theater_System
                   "Press 6 to print Ticket Officeers\n" +
                   "Press 7 to to print information of manager\n" +
                   "Press 8 to set new Informations to existing Theather\n" +
-                  "Press 9 to Exit from manager Panel");
+                  "Press 9 to Exit from Manager Panel");
                 int index = Convert.ToInt32(Console.ReadLine());
                 switch (index)
                 {

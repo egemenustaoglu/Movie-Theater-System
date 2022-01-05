@@ -9,6 +9,9 @@ namespace Movie_Theater_System
     class TicketOfficer : User
     { 
         private int id;
+        private bool makeChildDiscount = false;
+        private bool makeStudentDiscount = false;
+        private bool makeAdultDiscount = false;
         public TicketOfficer()
         {
 
@@ -121,11 +124,6 @@ namespace Movie_Theater_System
             }
 
         }
-        public static void TakePayment(Customer customer)
-        {
-            Console.WriteLine(customer.GetBalance());
-            customer.SetBalance(10);
-            Console.WriteLine(customer.GetBalance());
-        }
+        
     }
 }

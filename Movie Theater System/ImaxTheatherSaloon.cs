@@ -14,9 +14,8 @@ namespace Movie_Theater_System
         //We also change the basePrice of the movie which is created in system class
         Movie movie = new Movie();
 
-        public ImaxTheatherSaloon(int IMAXTheatherID, int IMAXSeatCount , bool ImaxIsAvailable , Movie Movie) : base(IMAXTheatherID, IMAXSeatCount, ImaxIsAvailable)
+        public ImaxTheatherSaloon(int IMAXTheatherID, int IMAXSeatCount , bool ImaxIsAvailable) : base(IMAXTheatherID, IMAXSeatCount, ImaxIsAvailable)
         {
-            movie = Movie;
         }
         // get methods
         
@@ -43,7 +42,7 @@ namespace Movie_Theater_System
 
         //MakeGeneralDiscount() is for usage of Polymorphism
         //Override the method for the specific theater discount.
-        public override void MakeFixedDiscount()
+        /*public override void MakeFixedDiscount()
         {
             double basePrice = movie.GetBasePrice();
             // we take fixed discount amount with convert.ToDounle methot to make sure division calculation not return 0
@@ -51,7 +50,7 @@ namespace Movie_Theater_System
             movie.SetBasePrice(basePrice);
             Console.WriteLine("Base price of the movie which is shown on this saloon is set to : " + movie.GetBasePrice());
         }
-
+        */
 
     }
    

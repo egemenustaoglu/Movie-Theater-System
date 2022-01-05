@@ -10,6 +10,7 @@ namespace Movie_Theater_System
         public static List<Movie> movieList = new List<Movie>();
         public static List<TicketOfficer> ticketOfficerList = new List<TicketOfficer>();
         public static List<TheatherSaloon> theatherSaloonList = new List<TheatherSaloon>();
+        public static List<Customer> customerList = new List<Customer>();
         static void Main(string[] args)
         {
             Movie mov = new Movie("Egemen sikmece", 100, false);
@@ -22,18 +23,15 @@ namespace Movie_Theater_System
             movieList.Add(mov3);
             movieList.Add(mov4);
             // *********************************Tiyatro salonları önceden oluşturulucak
-            RegularTheatherSaloon saloon = new RegularTheatherSaloon(1, 10, true, mov);
-            RegularTheatherSaloon saloon2 = new RegularTheatherSaloon(2, 102, true, mov);
-            RegularTheatherSaloon saloon3 = new RegularTheatherSaloon(3, 100, true, mov);
+            RegularTheatherSaloon saloon = new RegularTheatherSaloon(1, 10, true);
+            RegularTheatherSaloon saloon2 = new RegularTheatherSaloon(2, 102, true);
+            RegularTheatherSaloon saloon3 = new RegularTheatherSaloon(3, 100, true);
             theatherSaloonList.Add(saloon);
             theatherSaloonList.Add(saloon2);
             theatherSaloonList.Add(saloon3);
             bool flag = true;
 
-            Customer cust = new AdultCustomer("Atakan",23, 110);
-            cust.Pay();
-           
-           
+            Customer cust = new ChildCustomer("Atakan",23, 110);
             while (flag)
             {
                 Console.WriteLine("*** Welcome to Movie Theather Sysytem ***\n" +
@@ -51,6 +49,7 @@ namespace Movie_Theater_System
                         TicketOfficer.TicketOfficerPanel();
                         break;
                     case 3:
+                        cust.CustomerPanel();
                         break;
                     case 4:
                         Console.WriteLine("You are exiting from Movie Theather Sysytem ... \n" +
@@ -98,9 +97,9 @@ namespace Movie_Theater_System
             user.PrintInfo();
         }
         //This is a polymorphism method. Depend on the which type of saloon (RegularTheatherSaloon or ImacTheatherSaloon) we give to method , it will make a different amount of discounts
-        public static void MakeDiscount(TheatherSaloon saloon )
+        public static void MakeDiscount(Customer customer , Movie mov)
         {
-            saloon.MakeFixedDiscount();
+            customer.MakeDiscount(mov);
         }
     }
 }

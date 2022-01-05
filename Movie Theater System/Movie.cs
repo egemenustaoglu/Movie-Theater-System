@@ -17,7 +17,7 @@ namespace Movie_Theater_System
 
         }
 
-        public Movie(string movieTitle , double basePrice , bool isIMAX)
+        public Movie(string movieTitle , double basePrice , bool isIMAX )
         {
             try
             {
@@ -53,6 +53,8 @@ namespace Movie_Theater_System
         {
             return isIMAX;
         }
+
+        
         // set methods 
         public void SetMovieTitle(string movieTitle)
         {
@@ -85,6 +87,7 @@ namespace Movie_Theater_System
         {
             this.isIMAX = isIMAX;
         }
+        
         
         public static void ListMovies()
         {

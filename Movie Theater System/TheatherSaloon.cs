@@ -11,6 +11,7 @@ namespace Movie_Theater_System
         private  int theatherID;
         private int seatCount;
         private bool isAvailable;
+        private static int movieListCounter;
 
         public int TheatherID { get => theatherID; set => theatherID = value; }
         public int SeatCount { get => seatCount; set => seatCount = value; }
@@ -59,6 +60,10 @@ namespace Movie_Theater_System
         {
             return seatCount;
         }
+        public bool GetIsAvailable()
+        {
+            return isAvailable;
+        }
        
         // set methods 
         public void SetID(int index)
@@ -101,11 +106,15 @@ namespace Movie_Theater_System
                 Console.ResetColor();
             }
         }
+        public void SetIsAvailable(bool change)
+        {
+            isAvailable = change;
+        }
      
 
         //MakeGeneralDiscount() method for further usage of Polymorphism in child classes.
         // child classes must override this method because it is abstract method and we can specify this method's discount amount depending to which theather saloon is it . --> System.cs --> 31
-        public abstract void MakeFixedDiscount();
+        //public abstract void MakeFixedDiscount();
 
         public static void ChangeSaloonInformation()
         {
@@ -151,6 +160,20 @@ namespace Movie_Theater_System
             }
         }
 
+        public static void DisplayAvailableTheatherSaloons()
+        {
+            Console.WriteLine(System.indent + "*** Listing available Movie Theathers ***");
+            movieListCounter = 1 ;
+            foreach(TheatherSaloon saloon in System.theatherSaloonList)
+            {
+                if(saloon.GetIsAvailable() == true)
+                {
+                    Console.WriteLine(movieListCounter + ". Available saloon is : " + saloon.GetID() + "\n" +
+                        "And its seat count is : " + saloon.GetSeat()) ;
+                }
+                movieListCounter += 1;
+            }
+        }
     }
     // To throw exceprtion we create our exception class which is inherit from Exception generic class and we use it to display our error message.
     public class SaloonException : Exception

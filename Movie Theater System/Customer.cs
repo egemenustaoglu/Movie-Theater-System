@@ -22,22 +22,40 @@ namespace Movie_Theater_System
             FullName = Name;
             balance = Balance;
         }
+
         //get methods
         public double GetBalance()
         {
-            return balance;
+            return Balance;
         }
         //set methods
         public void SetBalance(double newBalance)
         {
-            balance = newBalance;
+            Balance = newBalance;
         }
-        public abstract void RequestTicket();
-        public abstract void RequestSchedual();
-        public void Pay() 
+        public void AddMoneyToBalance()
         {
-            TicketOfficer.TakePayment((Customer)this.MemberwiseClone());
+            Console.WriteLine("Your current account balance is : " + GetBalance() + "\n" +
+                            "How much do you want to add to your account : ");
+            double addingToBalance = Convert.ToDouble(Console.ReadLine());
+            SetBalance(GetBalance() + addingToBalance);
+            Console.WriteLine("Your Final balance is : " + GetBalance());
         }
+        
+        public static void RequestSchedual() 
+        {
+            Movie.ListMovies();
+        }
+        public void RequestTicket()
+        {
+            Movie.ListMovies();
+            Console.WriteLine(System.indent + "Select a movie for buy ticket");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            Movie aMovie = System.movieList[choice - 1];
+            MakeDiscount(aMovie);
+        }
+        public abstract void MakeDiscount(Movie mov);
+        public abstract void CustomerPanel();
         public override void PrintInfo()
         {
         }

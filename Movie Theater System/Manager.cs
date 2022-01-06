@@ -118,7 +118,10 @@ namespace Movie_Theater_System
                             {
                                 throw new UserException("You should select a valid input");
                             }
+                            Movie deletingMovie = System.movieList[deleteChoice - 1];
+                            deletingMovie.GetTheatherSaloon().SetIsAvailable(true);
                             System.movieList.RemoveAt(deleteChoice-1);
+
                         }
                         catch (UserException e)
                         {

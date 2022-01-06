@@ -13,14 +13,14 @@ namespace Movie_Theater_System
         private static int movieListCounter;
         private static DateTime movieStartTime;
         private static DateTime movieEndTime;
-
+        private TheatherSaloon saloon;
         //Constructor
         public Movie( )
         {
 
         }
 
-        public Movie(string movieTitle , double basePrice , bool isIMAX  , DateTime MovieStartTime , DateTime MovieEndTime)
+        public Movie(string movieTitle , double basePrice , bool isIMAX  , DateTime MovieStartTime , DateTime MovieEndTime , TheatherSaloon theatherSaloon)
         {
             try
             {
@@ -42,6 +42,7 @@ namespace Movie_Theater_System
             movieEndTime = MovieEndTime;
             this.movieTitle = movieTitle;
             this.isIMAX = isIMAX;
+            saloon = theatherSaloon;
         }
 
         // get methods
@@ -66,6 +67,10 @@ namespace Movie_Theater_System
         {
             String endTimeHourMinute = movieEndTime.ToString("HH:mm");
             return endTimeHourMinute;
+        }
+        public TheatherSaloon GetTheatherSaloon()
+        {
+            return saloon;
         }
 
 
@@ -155,7 +160,9 @@ namespace Movie_Theater_System
                 {
                     throw new PriceException("Your input is invalid");
                 }
-                Movie addNewMovie = new Movie(newMovieTitle, newMovieBasePrice, newMovieIMAXbool , movieStartTime , movieEndTime);
+                TheatherSaloon attachableSaloon = TheatherSaloon.DisplayAvailableTheatherSaloons();
+                attachableSaloon.SetIsAvailable(false);
+                Movie addNewMovie = new Movie(newMovieTitle, newMovieBasePrice, newMovieIMAXbool , movieStartTime , movieEndTime , attachableSaloon);
                 Console.WriteLine("Your new movie is created.");
                 try
                 {

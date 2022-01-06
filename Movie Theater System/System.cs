@@ -26,7 +26,7 @@ namespace Movie_Theater_System
             // Creating some movies to show in presentation
             DateTime movieStartTime1 = new DateTime(2022, 2, 1, 13, 30, 0);
             DateTime movieEndTime1 = new DateTime(2022, 2, 1, 15 , 30, 0);
-            Movie movie1 = new Movie("Avatar" , 40 , true , movieStartTime1 , movieEndTime1);
+            Movie movie1 = new Movie("Avatar" , 40 , true , movieStartTime1 , movieEndTime1,theatherSaloonList[3]);
 
             movieList.Add(movie1);
 

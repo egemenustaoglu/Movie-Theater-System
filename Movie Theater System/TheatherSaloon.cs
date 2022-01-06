@@ -114,8 +114,8 @@ namespace Movie_Theater_System
         public static void CreateTheatherSaloons()
         {
             TheatherSaloon saloon1 = new ImaxTheatherSaloon(1, 50, true);
-            TheatherSaloon saloon2 = new RegularTheatherSaloon(2, 75, false);
-            TheatherSaloon saloon3 = new ImaxTheatherSaloon(3, 34, true);
+            TheatherSaloon saloon2 = new RegularTheatherSaloon(2, 75, true);
+            TheatherSaloon saloon3 = new ImaxTheatherSaloon(3, 34, false);
             TheatherSaloon saloon4 = new ImaxTheatherSaloon(4, 45, true);
             TheatherSaloon saloon5 = new RegularTheatherSaloon(5, 100, false);
             System.theatherSaloonList.Add(saloon1);
@@ -173,7 +173,7 @@ namespace Movie_Theater_System
             }
         }
 
-        public static void DisplayAvailableTheatherSaloons()
+        public static TheatherSaloon DisplayAvailableTheatherSaloons()
         {
             Console.WriteLine(System.indent + "*** Listing available Movie Theathers ***");
             movieListCounter = 1 ;
@@ -186,6 +186,26 @@ namespace Movie_Theater_System
                 }
                 movieListCounter += 1;
             }
+            Console.WriteLine("Which theather saloon you will be select to shown the new movie. Please give the ID of saloon");
+            int saloonID = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                foreach (TheatherSaloon sal in System.theatherSaloonList)
+                {
+                    if (sal.GetID().Equals(saloonID))
+                    {
+                        return sal;
+                    }
+                }
+                throw new SaloonException("You entered a wrong ID");
+            }
+            catch(SaloonException e)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
+            }
+            return null;
         }
     }
     // To throw exceprtion we create our exception class which is inherit from Exception generic class and we use it to display our error message.

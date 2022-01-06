@@ -23,8 +23,33 @@ namespace Movie_Theater_System
 
         public User(String Name , int Age)
         {
-            this.Name = Name;
-            this.Age = Age;
+            
+            try
+            {
+                if(Name == null || Name == " ")
+                {
+                    throw new UserException("Your user's name can not empty");
+                }
+                else
+                {
+                    this.Name = Name;
+                }
+                if (Age <0)
+                {
+                    throw new UserException("Your user's age can not be less the 0");
+                }
+                else
+                {
+                    this.Age = Age;
+                }
+            }
+            catch (UserException e)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
+            }
+            
         }
        
         // get methods

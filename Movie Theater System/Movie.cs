@@ -11,13 +11,16 @@ namespace Movie_Theater_System
         private double basePrice;
         private bool isIMAX;
         private static int movieListCounter;
+        private static DateTime movieStartTime;
+        private static DateTime movieEndTime;
+
         //Constructor
         public Movie( )
         {
 
         }
 
-        public Movie(string movieTitle , double basePrice , bool isIMAX )
+        public Movie(string movieTitle , double basePrice , bool isIMAX  , DateTime MovieStartTime , DateTime MovieEndTime)
         {
             try
             {
@@ -35,7 +38,8 @@ namespace Movie_Theater_System
                 Console.WriteLine(e.Message);
                 Console.ResetColor();
             }
-            
+            movieStartTime = MovieStartTime;
+            movieEndTime = MovieEndTime;
             this.movieTitle = movieTitle;
             this.isIMAX = isIMAX;
         }
@@ -53,8 +57,18 @@ namespace Movie_Theater_System
         {
             return isIMAX;
         }
+        public string GetStartTime()
+        {
+            String startTimeHourMinute = movieStartTime.ToString("HH:mm");
+            return startTimeHourMinute;
+        }
+        public string GetEndTime()
+        {
+            String endTimeHourMinute = movieEndTime.ToString("HH:mm");
+            return endTimeHourMinute;
+        }
 
-        
+
         // set methods 
         public void SetMovieTitle(string movieTitle)
         {
@@ -98,11 +112,12 @@ namespace Movie_Theater_System
                 Console.WriteLine(movieListCounter + ". Movie's informations are \n" +
                      "Title of the movie : " + movie.GetMovieTitle()+"\n" +
                      "Price of the movie : " + movie.GetBasePrice()+"\n" +
-                     "Is the movie Imax  : " + movie.GetIsIMAX());
+                     "Is the movie Imax  : " + movie.GetIsIMAX() + "\n" +
+                     "Start Time : " + movie.GetStartTime() + "\n" +
+                     "End Time : " + movie.GetEndTime());
                 movieListCounter += 1;
             }
         }
-
         public static void addMovieToList()
         {
             try
@@ -115,7 +130,19 @@ namespace Movie_Theater_System
                 Console.WriteLine("Press 'T' if movie is IMAX or 'F' if the movie is not IMAX");
                 String newMovieIMAX = Console.ReadLine();
                 bool newMovieIMAXbool=false;
-            
+                Console.WriteLine("Give a start time for movie HH:mm:");
+                string userInput = Console.ReadLine();
+                string[] parsed = userInput.Split(":");
+                int startHour = Convert.ToInt32(parsed[0]);
+                int startMinute = Convert.ToInt32(parsed[1]);
+                Console.WriteLine("Give a end time for movie HH:mm:");
+                userInput = Console.ReadLine();
+                parsed = userInput.Split(":");
+                int endHour = Convert.ToInt32(parsed[0]);
+                int endMinute = Convert.ToInt32(parsed[1]);
+                movieStartTime = new DateTime(2022, 2, 1, startHour, startMinute, 0);
+                movieEndTime = new DateTime(2022, 2, 1, endHour, endMinute, 0);
+
                 if (newMovieIMAX == "t" || newMovieIMAX == "T")
                 {
                     newMovieIMAXbool = true;
@@ -128,7 +155,7 @@ namespace Movie_Theater_System
                 {
                     throw new PriceException("Your input is invalid");
                 }
-                Movie addNewMovie = new Movie(newMovieTitle, newMovieBasePrice, newMovieIMAXbool);
+                Movie addNewMovie = new Movie(newMovieTitle, newMovieBasePrice, newMovieIMAXbool , movieStartTime , movieEndTime);
                 Console.WriteLine("Your new movie is created.");
                 try
                 {

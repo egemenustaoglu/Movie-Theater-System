@@ -16,14 +16,25 @@ namespace Movie_Theater_System
         }
         public override void CustomerPanel()
         {
-            bool flag = true;
+            bool flag = false;
+            Console.WriteLine("Please enter the Customer's password to continue with Customer panel");
+            string enteredPassword = Console.ReadLine();
+            if (enteredPassword.Equals(GetPassword()))
+            {
+                flag = true;
+            }
+            else
+            {
+                Console.WriteLine("You entered wrong password");
+            }
             while (flag)
             {
                 Console.WriteLine(System.indent + "*** Student Customer Panel ***\n" +
                "Press 1 to Diplay Movies\n" +
                "Press 2 to Request a ticket for a movie\n" +
                "Press 3 to see balance\n" +
-               "Press 4 to add money to your balance");
+               "Press 4 to add money to your balance\n" +
+                "Press 5 to Exit customer panel");
                 int index = Convert.ToInt32(Console.ReadLine());
                 switch (index)
                 {
@@ -38,6 +49,13 @@ namespace Movie_Theater_System
                         break;
                     case 4:
                         AddMoneyToBalance();
+                        break;
+                    case 5:
+                        Console.WriteLine("Exiting from Student Customer panel");
+                        flag = false;
+                        break;
+                    default:
+                        Console.WriteLine("You should enter a valid input");
                         break;
                 }
             }

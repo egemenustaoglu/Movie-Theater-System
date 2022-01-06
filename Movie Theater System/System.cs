@@ -11,23 +11,26 @@ namespace Movie_Theater_System
         public static List<TicketOfficer> ticketOfficerList = new List<TicketOfficer>();
         public static List<TheatherSaloon> theatherSaloonList = new List<TheatherSaloon>();
         public static List<Customer> customerList = new List<Customer>();
+        public static int customerCounter;
         static void Main(string[] args)
         {
-            Movie mov = new Movie("Egemen sikmece", 100, false);
-                Movie mov2 = new Movie("burak sikmece", 90, true);
-                Movie mov3 = new Movie("ali sikmece", 80, false);
-                Movie mov4 = new Movie("Atakan sikmece", 70, true);
-                Movie mov5 = new Movie("gerald sikmece", 60, false);
-            movieList.Add(mov);
-            movieList.Add(mov2);
-            movieList.Add(mov3);
-            movieList.Add(mov4);
             // We create our Theather Saloons before we go to Movie Theather System's panel
             TheatherSaloon.CreateTheatherSaloons();
-            
-            bool flag = true;   
+            // Creating some customer to show in presentation
+            Customer customer1 = new ChildCustomer("Batuhan" , 7 , 50);
+            Customer customer2 = new StudentCustomer("Zeynep", 17 , 120);
+            Customer customer3 = new AdultCustomer("Hüsnü" , 23 , 70);
+            customerList.Add(customer1);
+            customerList.Add(customer2);
+            customerList.Add(customer3);
+            // Creating some movies to show in presentation
+            DateTime movieStartTime1 = new DateTime(2022, 2, 1, 13, 30, 0);
+            DateTime movieEndTime1 = new DateTime(2022, 2, 1, 15 , 30, 0);
+            Movie movie1 = new Movie("Avatar" , 40 , true , movieStartTime1 , movieEndTime1);
 
-            Customer cust = new ChildCustomer("Atakan",23, 110);
+            movieList.Add(movie1);
+
+            bool flag = true;   
             while (flag)
             {
                 Console.WriteLine("*** Welcome to Movie Theather Sysytem ***\n" +
@@ -39,13 +42,23 @@ namespace Movie_Theater_System
                 switch (index)
                 {
                     case 1:
+                        Manager.GetManager();
                         Manager.ManagerPanel();
                         break;
                     case 2:
                         TicketOfficer.TicketOfficerPanel();
                         break;
                     case 3:
-                        cust.CustomerPanel();
+                        Console.WriteLine(System.indent + "***Printing Customers***");
+                        customerCounter = 1;
+                        foreach (Customer customer in System.customerList)
+                        {
+                            Console.Write(customerCounter+". "+ customer.GetName()+"\n");
+                            customerCounter += 1;
+                        }
+                        Console.WriteLine("Please pick your customer ...");
+                        int choose = Convert.ToInt32(Console.ReadLine());
+                        customerList[choose - 1].CustomerPanel();
                         break;
                     case 4:
                         Console.WriteLine("You are exiting from Movie Theather Sysytem ... \n" +
@@ -57,34 +70,6 @@ namespace Movie_Theater_System
                         break;
                 }
             }
-            Console.WriteLine(customerList[0].GetPassword());
-            
-           /* Movie mov = new Movie("Egemen sikmece", 100 , false);
-            Manager manager = Manager.GetManager();
-            TicketOfficer ticketOfficer1 = new TicketOfficer("Egemen" ,2);
-            UserTest(manager);
-            Customer cust = new AdultCustomer( "atakan akyazs", 24);
-            UserTest(ticketOfficer1);
-            TicketOfficer ticketOfficer2 = new TicketOfficer("Egemen" ,3);
-            UserTest(ticketOfficer2);
-            TicketOfficer ticketOfficer3 = new TicketOfficer("Egemen" ,14);
-            UserTest(ticketOfficer3);
-
-            RegularTheatherSaloon saloon = new RegularTheatherSaloon(1,10,true,mov);
-            Console.WriteLine(saloon.GetID() + " " + saloon.GetSeat() + " " + saloon.GetMovie() );
-            */
-            /*
-            Console.WriteLine(mov.GetBasePrice());s
-            mov.SetBasePrice(2);
-            Console.WriteLine(mov.GetBasePrice());
-            manager.SetMoviePrice(mov, -3.5);
-            Console.WriteLine(mov.GetBasePrice());
-            */
-           
-            /*TheatherSaloon theather = new RegularTheatherSaloon(1 , 10 , true , mov );
-            MakeDiscount(theather);
-            Console.WriteLine(mov.GetBasePrice());
-            */
         }
 
         //Here we create a method for display the user's information and this method call printInfo method from the User then by the type of user (Manager , ticketofficer or customer)
@@ -98,5 +83,7 @@ namespace Movie_Theater_System
         {
             customer.MakeDiscount(mov);
         }
+
+        
     }
 }

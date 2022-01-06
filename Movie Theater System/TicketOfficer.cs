@@ -12,6 +12,7 @@ namespace Movie_Theater_System
         private bool makeChildDiscount = false;
         private bool makeStudentDiscount = false;
         private bool makeAdultDiscount = false;
+        private static string officerPassword = "TO135";
         public TicketOfficer()
         {
 
@@ -31,16 +32,28 @@ namespace Movie_Theater_System
         public override void PrintInfo()
         {
             Console.WriteLine("Ticket officer's name is : " + GetName() + "\n" +
-                "Ticket officer's id is : " + GetId());
+                "Ticket Officer's age is: " + GetAge() + "\n" +
+                "Ticket officer's id is : " + GetId()) ;
         }
         public static void TicketOfficerPanel()
         {
-            bool flag = true;
+            bool flag = false;
+            Console.WriteLine("Please enter the Ticket Officer's password to continue with Ticket Officer panel");
+            string enteredPassword = Console.ReadLine();
+            if (enteredPassword.Equals(officerPassword))
+            {
+                flag = true;
+            }
+            else
+            {
+                Console.WriteLine("You entered wrong password");
+            }
             while (flag)
             {
                 Console.WriteLine(System.indent + "*** Ticket Officet Panel ***\n" +
                 "Press 1 to diplay Movies\n" +
-                "Press 2 to create new Customer");
+                "Press 2 to create new Customer\n" +
+                "Press 3 to exit from ");
                 int index = Convert.ToInt32(Console.ReadLine());
                 switch (index)
                 {
@@ -49,6 +62,12 @@ namespace Movie_Theater_System
                         break;
                     case 2:
                         CreateNewCustomer();
+                        break;
+                    case 3:
+                        flag = false;
+                        break;
+                    default:
+                        Console.WriteLine("You should give an valid input...");
                         break;
                 }
             }
@@ -61,10 +80,22 @@ namespace Movie_Theater_System
             {
                 Console.WriteLine("Give a name to customer ...");
                 string newCustomerName = Console.ReadLine();
+                if (newCustomerName == null || newCustomerName == " ")
+                {
+                    throw new UserException("Your Name can not be empty");
+                }
                 Console.WriteLine("Give an age to customer ...");
                 int newCustomerAge = Convert.ToInt32(Console.ReadLine());
+                if (newCustomerAge < 0)
+                {
+                    throw new UserException("Customer's Age can not be less than 0");
+                }
                 Console.WriteLine("Give a balance to customer ...");
                 double newCustomerBalance = Convert.ToDouble(Console.ReadLine());
+                if(newCustomerBalance < 0)
+                {
+                    throw new UserException("Customer's balence can not be less than 0");
+                }
                 string newCustomerPassword = Customer.EnterYourOwnPassword();
                 if (newCustomerAge <= 12 && newCustomerAge >= 0)
                 {
@@ -90,10 +121,7 @@ namespace Movie_Theater_System
                         System.customerList.Add(adultCustomer);
                     }
                 }
-                else
-                {
-                    throw new UserException("Your age must be 0 or more");
-                }
+               
             }
             catch (UserException e)
             {
@@ -101,6 +129,7 @@ namespace Movie_Theater_System
                 Console.WriteLine(e.Message);
                 Console.ResetColor();
             }
+
         }
         public static void CreateNewTicketOfiifcer()
         {
@@ -108,7 +137,11 @@ namespace Movie_Theater_System
             {
                 Console.WriteLine(System.indent + "*** Creating new Ticket Officer***\n" +
                "Please enter full name of the Ticket Officer");
-                String newTicketofficerName = Console.ReadLine(); ;
+                String newTicketofficerName = Console.ReadLine();
+                if (newTicketofficerName == null || newTicketofficerName == " ")
+                {
+                    throw new UserException("Your Name can not be empty");
+                }
                 Console.WriteLine("Please enter the age of the ticket officer");
                 int newTicketOfficerAge = Convert.ToInt32(Console.ReadLine());
                 if (newTicketOfficerAge < 18)
@@ -128,9 +161,9 @@ namespace Movie_Theater_System
 
         }
         public static void ChangeTicketOfficer()
-        {
+        {//printing all ticket officers in the ticketOfficerList
             Console.WriteLine(System.indent + "***Ticket Officer List***");
-            int ticketOfficerCount = 1;
+            int ticketOfficerCount = 1; // reason why we use it are firstly to print ticket officer by order and secondly to track if user's input out of range or not
             foreach(TicketOfficer ticketOfficer in System.ticketOfficerList)
             {                
                 Console.WriteLine(ticketOfficerCount + ". Movie's informations are \n" +
@@ -143,9 +176,9 @@ namespace Movie_Theater_System
             {
                 Console.WriteLine("Select which Ticket Officer will you be modify");
                 int ticketOfficerNumber = Convert.ToInt32(Console.ReadLine());
-                if (ticketOfficerNumber < 0)
+                if (ticketOfficerNumber < 0 || ticketOfficerNumber > ticketOfficerCount) // here we use int ticketOfficerCount to see if use's input out of range
                 {
-                    throw new SaloonException("Your selection should be in the list");
+                    throw new UserException("Your selection should be in the list");
                 }
                 TicketOfficer changedTicketOfficer = System.ticketOfficerList[ticketOfficerNumber - 1];
                 Console.WriteLine(System.indent + "***Changing Information***");
@@ -153,18 +186,18 @@ namespace Movie_Theater_System
                 String newTicketOfficerName = Console.ReadLine();
                 if (newTicketOfficerName == null)
                 {
-                    throw new SaloonException("Your new Name can not be empty");
+                    throw new UserException("Your new Name can not be empty");
                 }
                 Console.WriteLine("Enter new Age for your Ticket Officer");
                 int newTicketOfficerAge = Convert.ToInt32(Console.ReadLine());
                 if (newTicketOfficerAge < 18)
                 {
-                    throw new SaloonException("Your new Age should be 18 or more");
+                    throw new UserException("Your new Age should be 18 or more");
                 }
                 changedTicketOfficer.SetName(newTicketOfficerName);
                 changedTicketOfficer.SetAge(newTicketOfficerAge);
             }
-            catch (SaloonException e)
+            catch (UserException e)
             {
                 Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine(e.Message);

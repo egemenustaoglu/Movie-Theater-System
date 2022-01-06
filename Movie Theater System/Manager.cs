@@ -59,7 +59,9 @@ namespace Movie_Theater_System
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You entered wrong password");
+                Console.ResetColor();
             }
             while (flag)
             {
@@ -67,11 +69,11 @@ namespace Movie_Theater_System
                   "Press 1 to set a movie's price\n" +
                   "Press 2 to add a new movie to movie list\n" +
                   "Press 3 to list all movies\n" +
-                  "Press 4 to delete movie" +
+                  "Press 4 to delete movie\n" +
                   "Press 5 to add new Ticket Officer\n" +
                   "Press 6 to set new Information to existing Ticket Officer\n" +
                   "Press 7 to print Ticket Officeers\n" +
-                  "Press 8 to delete Ticket Officer" +
+                  "Press 8 to delete Ticket Officer\n" +
                   "Press 9 to to print information of manager\n" +
                   "Press 10 to set new Informations to existing Theather\n" +
                   "Press 11 to Exit from Manager Panel\n");
@@ -85,7 +87,7 @@ namespace Movie_Theater_System
                         int listChoice = Convert.ToInt32(Console.ReadLine());
                         try
                         {
-                            if (listChoice < System.movieList.Count +1)
+                            if (listChoice > System.movieList.Count +1)
                             {
                                 throw new UserException("You should select a valid input");
                             }
@@ -114,7 +116,7 @@ namespace Movie_Theater_System
                         int deleteChoice = Convert.ToInt32(Console.ReadLine());
                         try
                         {
-                            if(deleteChoice < System.movieList.Count)
+                            if(deleteChoice > System.movieList.Count)
                             {
                                 throw new UserException("You should select a valid input");
                             }
@@ -145,7 +147,12 @@ namespace Movie_Theater_System
                         }
                         break;
                     case 8:
-                        Movie.ListMovies();
+                        Console.WriteLine(System.indent + "***Printing Ticket Officers***");
+                        foreach (TicketOfficer ticketOfficer in System.ticketOfficerList)
+                        {
+                            Console.Write("*");
+                            System.UserInformation(ticketOfficer);
+                        }
                         Console.WriteLine("Select the Ticket Officer you want to remove");
                         int deleteTciketOfficerChoice = Convert.ToInt32(Console.ReadLine());
                         try
@@ -154,7 +161,7 @@ namespace Movie_Theater_System
                             {
                                 throw new UserException("You should select a valid input");
                             }
-                            System.movieList.RemoveAt(deleteTciketOfficerChoice - 1);
+                            System.ticketOfficerList.RemoveAt(deleteTciketOfficerChoice - 1);
                         }
                         catch (UserException e)
                         {

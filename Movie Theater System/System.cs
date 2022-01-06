@@ -18,8 +18,11 @@ namespace Movie_Theater_System
             TheatherSaloon.CreateTheatherSaloons();
             // Creating some customer to show in presentation
             Customer customer1 = new ChildCustomer("Batuhan" , 7 , 50);
+            customer1.SetPassword("123");
             Customer customer2 = new StudentCustomer("Zeynep", 17 , 120);
+            customer2.SetPassword("123");
             Customer customer3 = new AdultCustomer("Hüsnü" , 23 , 70);
+            customer3.SetPassword("123");
             customerList.Add(customer1);
             customerList.Add(customer2);
             customerList.Add(customer3);
@@ -27,8 +30,11 @@ namespace Movie_Theater_System
             DateTime movieStartTime1 = new DateTime(2022, 2, 1, 13, 30, 0);
             DateTime movieEndTime1 = new DateTime(2022, 2, 1, 15 , 30, 0);
             Movie movie1 = new Movie("Avatar" , 40 , true , movieStartTime1 , movieEndTime1,theatherSaloonList[3]);
-
             movieList.Add(movie1);
+            // Creating some Ticket Officers to show in presentation
+            User ticketOfficer1 = new TicketOfficer("Hamza",27);
+            User ticketOfficer2 = new TicketOfficer("Berru",23);
+
 
             bool flag = true;   
             while (flag)

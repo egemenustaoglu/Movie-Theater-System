@@ -46,7 +46,9 @@ namespace Movie_Theater_System
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You entered wrong password");
+                Console.ResetColor();
             }
             while (flag)
             {
